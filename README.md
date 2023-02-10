@@ -1,5 +1,5 @@
 ## Returns a base64 encoded Image Data of barcode.
-# Only GET method accepted.
+### Only GET method accepted.
 # EndPoint: (port of hosted server)/loogia/getBarcode
 # *Requirements: 
 headers: 
