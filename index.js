@@ -11,7 +11,7 @@ app.listen(PORT, () => {
 });
 
 app.get("/loogia/getbarcode", (req, res) => {
-  if (req.header("api_key") == "loogia") {
+  if (req.header("api_key") == process.env.API_KEY) {
     var slip_number = req.query.slip_number;
     res.status(200).send({
       base64data: barcodeGenerator(slip_number),
