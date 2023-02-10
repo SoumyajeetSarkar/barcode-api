@@ -3,10 +3,11 @@ import { barcodeGenerator } from "./barcode-generator.js";
 import Express from "express";
 
 const app = Express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`API is online at http://localhost:${PORT}`);
+  
 });
 
 app.get("/loogia/getbarcode", (req, res) => {
