@@ -1,20 +1,20 @@
 //canvas library: https://www.npmjs.com/package/canvas
-import { createCanvas } from 'canvas';  //image data を作成するライブラリ
+import { createCanvas } from "canvas"; //image data を作成するライブラリ
 
 //JsBarcode library: https://www.npmjs.com/package/jsbarcode
-import JsBarcode from 'jsbarcode'; //バーコード作成するライブラリ
+import JsBarcode from "jsbarcode"; //バーコード作成するライブラリ
 
-export const barcodeGenerator = (request) =>{
-    var slip_number = request //sample 伝票番号
-    
-    var canvas = createCanvas(100,100); //create canvas of 100x100 pixels
-    JsBarcode(canvas, slip_number); 
-    const dataUrl = canvas.toDataURL();
-    
-    var base64Data = dataUrl.replace(/^data:image\/png;base64,/, ""); //base64 のイメージデータ
-    return base64Data;
-}
+export const barcodeGenerator = (slip_number, format) => {
+  var canvas = createCanvas(100, 100); //create canvas of 100x100 pixels
+  JsBarcode(canvas, slip_number, {
+    format: format,
+    displayValue: false,
+  });
+  const dataUrl = canvas.toDataURL();
 
+  var base64Data = dataUrl.replace(/^data:image\/png;base64,/, ""); //base64 のイメージデータ
+  return base64Data;
+};
 
 /********************************************Alternate method: Creating SVG string of a barcode************************************/
 // const { DOMImplementation, XMLSerializer } = require('xmldom');
