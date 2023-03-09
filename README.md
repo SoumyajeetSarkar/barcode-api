@@ -10,3 +10,6 @@ query:
 {
   slip_number: *required*
 }
+### Supported formats
+
+![image](https://user-images.githubusercontent.com/93812988/224089896-3a6044b0-9e27-4d8c-8468-81b2ffe22a08.png)
